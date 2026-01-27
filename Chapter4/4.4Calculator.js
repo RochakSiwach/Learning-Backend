@@ -34,28 +34,26 @@ const server = http.createServer((req, res) => {
 
     res.setHeader('Content-Type','text/html')
 
-    let data =[];
-    req.on('data',(chunk)=>{
-        console.log(chunk);
-        data.push(chunk);
+    let data = []
+    req.on("data",(chunk)=>{
+        data.push(chunk)
     })
 
-    req.on('end',()=>{
-        const value = Buffer.concat(data).toString();
-        console.log(value)
+    req.on("end",()=>{
+        const parseBody = Buffer.concat(data).toString();
+        console.log(parseBody)
 
-        const parsevalue  = new URLSearchParams(value);
-        const body ={}
-        for( const [key,value] of parsevalue.entries()){
+        const params = new URLSearchParams(parseBody)
+        const body = {}
+        for( const [key,value] of params.entries()){
             body[key] = value;
-
         }
-        const num = Number(body.number1)+ Number(body.number2)
-    
 
-    res.write(`<h1>SUM IS : ${num} </h1>`)
-    res.end();     
-})
+        const num = Number(body.number1)+ Number(body.number2);
+        res.write(`<h1>SUM IS : ${num} </h1>`)
+        res.end();     
+    
+    })
 
   }
 

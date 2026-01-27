@@ -31,10 +31,23 @@ const server = http.createServer((req, res) => {
             </html>`);
             res.end();
   } else if (req.url === "/submit-detail") {
-    let value =''
+    let value =[]
     req.on('data',(chunk)=>{ //  .on('data') pe buffer chunks milte hain
         console.log('chunk h yeah ',chunk ) // chunks mtlb buffer print ho gye
-        console.log('chunk h yeah ',chunk.toString()) // string mai aa gya vapas
+        value.push(chunk);
+    })
+    req.on('end',()=>{
+        
+        const parsebody = Buffer.concat(value).toString();
+        console.log(parsebody)        
+
+        const params = new URLSearchParams(parsebody);
+        const bodydata ={}
+        for( const [key,value] of params.entries()){
+            bodydata[key] = value;
+        }
+        console.log(bodydata)
+
     })
     res.write(`<h1>Form Submitted!!</h1>`);
     res.end();
