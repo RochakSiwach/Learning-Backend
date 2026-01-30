@@ -52,7 +52,7 @@ const server = http.createServer((req, res) => {
         const num = Number(body.number1)+ Number(body.number2);
         res.write(`<h1>SUM IS : ${num} </h1>`)
         res.end();     
-    
+
     })
 
   }
