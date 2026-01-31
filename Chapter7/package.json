@@ -1,0 +1,15 @@
+{
+  "name": "chapter7",
+  "version": "1.0.0",
+  "main": "Middleware.js",
+  "scripts": {
+    "start": "node Middleware.js",
+    "dev": "nodemon Middleware.js"
+  },
+  "dependencies": {
+    "express": "^5.x.x"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

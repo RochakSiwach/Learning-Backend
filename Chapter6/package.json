@@ -1,0 +1,19 @@
+{
+  "name": "chapter6",
+  "version": "1.0.0",
+  "main": "firstExpress.js",
+  "scripts": {
+    "start": "node firstExpress.js",
+    "dev": "nodemon firstExpress.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "description": ""
+}
